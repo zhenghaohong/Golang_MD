@@ -1,0 +1,36 @@
+
+
+如果不知道redis-server文件位置输入如下命令查询位置
+
+```shell
+find / -name redis-server
+```
+
+linux 下redis启动命令
+
+```shell
+/usr/local/bin/redis-server  /home/data/redis-3.2.1/redis.conf  (/usr/local/redis/redis.conf)
+```
+
+
+
+查看是否启动成功：
+
+```sh
+netstat -nplt
+
+使用ps 查看或 netstat 
+ps aux | grep redis-server
+netstat -tunple | grep 6379
+
+
+```
+
+
+
+
+
+
+
+
+
