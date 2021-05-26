@@ -1,5 +1,9 @@
 ## Package
 
+export PATH=/Users/xxx/Documents/phantomjs-2.1.1-macosx/bin:$PATH
+
+ps axu|grep redis
+
 ```go
 1、安装redigo
 go get github.com/garyburd/redigo/redis
@@ -295,9 +299,9 @@ func argsExample() {
 		Body   string `redis:"body"`
 	}
 
-	p1.Title = "Example"
+	p1.Title 	= "Example"
 	p1.Author = "Gary"
-	p1.Body = "Hello"
+	p1.Body 	= "Hello"
 
 	if _, err := c.Do("HMSET", redis.Args{}.Add("id1").AddFlat(&p1)...); err != nil {
 		fmt.Println(err)
