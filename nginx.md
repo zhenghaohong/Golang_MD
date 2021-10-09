@@ -67,3 +67,57 @@ server {
 
 
 
+```shell
+   
+   server{
+   listen 80;
+    listen [::]:80;
+    server_name devparents.calfkaka.com;
+    root /usr/share/nginx/html;
+    
+    
+ 		location / {
+        proxy_pass http://localhost:8501;
+        index index.html index.htm index.jsp;
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    }
+}
+
+```
+
+
+
+### 配置https例子
+
+
+
+```json
+ server {
+    listen 443 ssl http2 ;
+    listen [::]:443 ssl http2 ;
+    server_name apiserver.calfkaka.com;
+    root /www;
+
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+		ssl_certificate "/usr/local/nginx/ssl/apiserver.calfkaka.com.pem";
+    ssl_certificate_key "/usr/local/nginx/ssl/apiserver.calfkaka.com.key";
+
+     location / {
+        proxy_pass http://localhost:8101;
+     }
+  }
+}
+
+
+```
+
